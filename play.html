@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chess Game</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel-alt: #1f2937;
+        --accent: #7c9cff;
+        --accent-2: #a78bfa;
+        --text: #f8fafc;
+        --muted: #cbd5e1;
+        --light-square: #f0d9b5;
+        --dark-square: #b58863;
+        --legal: rgba(82, 206, 130, 0.7);
+        --capture: rgba(255, 99, 99, 0.85);
+        --danger: #ef4444;
+      }
+
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(160deg, #0f172a 0%, #111827 42%, #1e293b 100%);
+        color: var(--text);
+      }
+
+      body {
+        padding: 24px;
+      }
+
+      .landing {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 24px;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 25px 60px rgba(0,0,0,0.36);
+        overflow: hidden;
+      }
+
+      .hero {
+        padding: 64px 24px 30px;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(124,156,255,0.12), rgba(167,139,250,0.14));
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(124,156,255,0.15);
+        border: 1px solid rgba(124,156,255,0.3);
+        color: #dfe8ff;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 7vw, 5rem);
+        margin: 18px 0 12px;
+        letter-spacing: -0.04em;
+      }
+
+      .hero p {
+        max-width: 700px;
+        margin: 0 auto 24px;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .cta {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 24px;
+        border-radius: 14px;
+        border: none;
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(124,156,255,0.25);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      .btn-secondary {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        padding: 24px;
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: 18px;
+        background: rgba(17,24,39,0.9);
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .card .icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .rules {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding: 26px 24px 34px;
+      }
+
+      .rules h2 {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+
+      .rules ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      li::before {
+        content: "✓ ";
+        color: #7ce5b0;
+        font-weight: 700;
+      }
+
+      footer {
+        text-align: center;
+        padding: 18px 24px 28px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 640px) {
+        body { padding: 12px; }
+        .hero { padding-top: 40px; }
+        .cta { flex-direction: column; }
+        .btn { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="landing">
+      <div class="hero">
+        <span class="badge">Playable web app</span>
+        <h1>Chess Game</h1>
+        <p>
+          A complete interactive chess game built with HTML, CSS, and JavaScript. Click a piece,
+          follow legal moves, castle, enforce check, promote pawns, and play locally on one device.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="index.html">▶ Play Now</a>
+          <a class="btn btn-secondary" href="https://github.com/shubham-k-jha/chess-game" target="_blank" rel="noreferrer">View Repo</a>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="card">
+          <div class="icon">♟️</div>
+          <h3>Legal Moves</h3>
+          <p>Pawn, knight, bishop, rook, queen, and king movement all validated correctly.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏰</div>
+          <h3>Special Rules</h3>
+          <p>Includes castling, en passant, promotion, and check detection.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📜</div>
+          <h3>Move History</h3>
+          <p>Track every move with captured pieces and live turn updates.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔄</div>
+          <h3>Undo + Restart</h3>
+          <p>Take back moves or start a fresh game in one click.</p>
+        </div>
+      </div>
+
+      <div class="rules">
+        <h2>Included Features</h2>
+        <ul>
+          <li>Interactive chess board</li>
+          <li>Captures and legal move highlighting</li>
+          <li>Check, checkmate, and stalemate detection</li>
+          <li>Castling for both sides</li>
+          <li>En passant support</li>
+          <li>Pawn promotion choices</li>
+          <li>Undo move support</li>
+          <li>Move history panel</li>
+          <li>Board flip and responsive layout</li>
+          <li>Modern dark UI and accessibility friendly controls</li>
+        </ul>
+      </div>
+
+      <footer>
+        <p>Built with HTML, CSS, and JavaScript • Open <strong>index.html</strong> to play locally</p>
+      </footer>
+    </div>
+  </body>
+</html>
