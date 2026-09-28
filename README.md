@@ -2,6 +2,10 @@
 
 A polished, dependency-free browser chess game built from the original local two-player project and upgraded with a real chess search engine.
 
+## 🎮 Play Online
+
+**[Play Neon Pong](https://shubham-k-jha.github.io/Neon-Chess-Chess-vs-AI/)**
+
 ## Features
 
 - Human (White) vs AI (Black)
