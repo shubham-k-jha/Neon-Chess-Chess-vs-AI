@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chess Game</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header><h1>CHESS GAME</h1><p>Classic chess for two players on one device</p></header>
+    <div class="layout">
+      <section><div id="board" class="board" role="grid" aria-label="Chess board"></div></section>
+      <aside>
+        <div class="panel status"><div><span>Current turn</span><strong id="turn">White</strong></div><div id="status">White's Turn</div></div>
+        <div class="panel"><h2>Captured</h2><p>White captured <span id="whiteCaptured"></span></p><p>Black captured <span id="blackCaptured"></span></p></div>
+        <div class="panel controls"><button id="newGame">New Game</button><button id="undo">Undo</button><button id="flip">↕ Flip Board</button></div>
+        <div class="panel history"><h2>Move History</h2><div id="history"></div></div>
+      </aside>
+    </div>
+  </main>
+  <div id="promotion" class="modal hidden" role="dialog" aria-modal="true"><div class="dialog"><h2>Choose promotion</h2><div id="promotionChoices"></div></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
