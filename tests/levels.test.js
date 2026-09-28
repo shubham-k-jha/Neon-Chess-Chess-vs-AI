@@ -1,0 +1,3 @@
+
+const fs=require('fs'),vm=require('vm');const {performance}=require('perf_hooks');const ctx={console,performance,globalThis:{}};ctx.globalThis=ctx;vm.createContext(ctx);vm.runInContext(fs.readFileSync('../js/engine.js','utf8'),ctx);const E=ctx.ChessEngine;function A(x,m){if(!x)throw Error(m)}
+for(const l of [1,25,50,75,100]){let s=E.initialState();s.positions[E.key(s)]=1;const r=E.searchBest(s,l);A(r.move,`no move ${l}`);A(E.legalMoves(s).some(m=>m.from.r===r.move.from.r&&m.from.c===r.move.from.c&&m.to.r===r.move.to.r&&m.to.c===r.move.to.c),`illegal ${l}`);console.log(l,r.depth,r.nodes,r.time);}

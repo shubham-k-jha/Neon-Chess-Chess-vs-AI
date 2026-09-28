@@ -1,1 +1,3 @@
 
+const fs=require('fs'),vm=require('vm');const ctx={console,performance,globalThis:{}};ctx.globalThis=ctx;vm.createContext(ctx);vm.runInContext(fs.readFileSync('../js/engine.js','utf8'),ctx);const E=ctx.ChessEngine;function A(x,m){if(!x)throw Error(m)}function mv(s,a,b){const m=E.legalMoves(s).find(m=>m.from.r===a[0]&&m.from.c===a[1]&&m.to.r===b[0]&&m.to.c===b[1]);A(m,'missing move');return E.makeMove(s,m)}
+let s=E.initialState();s.positions[E.key(s)]=1;s=mv(s,[6,5],[5,5]);s=mv(s,[1,4],[3,4]);s=mv(s,[6,6],[4,6]);s=mv(s,[0,3],[4,7]);const t=E.terminal(s);A(t.over&&t.type==='checkmate'&&t.winner==='b','fools mate');console.log('PASS checkmate');
