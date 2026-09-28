@@ -1,23 +1,24 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Chess Game</title><link rel="stylesheet" href="style.css">
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neon Chess — Chess vs AI</title><meta name="description" content="Play chess against a browser chess engine with 100 difficulty levels.">
+<link rel="stylesheet" href="css/style.css"></head>
 <body>
-  <main class="app">
-    <header><h1>CHESS GAME</h1><p>Classic chess for two players on one device</p></header>
-    <div class="layout">
-      <section><div id="board" class="board" role="grid" aria-label="Chess board"></div></section>
-      <aside>
-        <div class="panel status"><div><span>Current turn</span><strong id="turn">White</strong></div><div id="status">White's Turn</div></div>
-        <div class="panel"><h2>Captured</h2><p>White captured <span id="whiteCaptured"></span></p><p>Black captured <span id="blackCaptured"></span></p></div>
-        <div class="panel controls"><button id="newGame">New Game</button><button id="undo">Undo</button><button id="flip">↕ Flip Board</button></div>
-        <div class="panel history"><h2>Move History</h2><div id="history"></div></div>
-      </aside>
-    </div>
-  </main>
-  <div id="promotion" class="modal hidden" role="dialog" aria-modal="true"><div class="dialog"><h2>Choose promotion</h2><div id="promotionChoices"></div></div></div>
-  <script src="script.js"></script>
-</body>
-</html>
+<main class="app">
+<header class="top"><div><span class="eyebrow">NEON CHESS</span><h1>Chess vs AI</h1><p>White vs a real browser chess engine • 100 scalable levels</p></div>
+<div class="top-actions"><button id="newGame" class="primary">New Game</button><button id="flip">↕ Flip</button></div></header>
+<section class="layout">
+<div class="board-wrap"><div class="playerbar"><span>♙ YOU · WHITE</span><span id="turn">White</span></div><div id="board" class="board" aria-label="Chess board"></div><div class="ai-bar"><span>♟ AI · BLACK</span><span id="thinking" class="thinking hidden">🤖 Thinking…</span></div></div>
+<aside>
+<section class="panel difficulty"><div class="panel-title"><span>AI DIFFICULTY</span><strong id="levelValue">30</strong></div><input id="level" type="range" min="1" max="100" value="30"><div class="range-labels"><span>1</span><span>25</span><span>50</span><span>75</span><span>100</span></div><p id="difficulty">Intermediate</p><div class="engine"><span>Engine</span><span id="nodes">Ready</span></div></section>
+<section class="panel"><div class="status" id="status">Your turn</div></section>
+<section class="panel"><div class="panel-title"><span>GAME CONTROLS</span></div><div class="controls"><button id="undo">↶ Undo</button><button id="flip">↕ Flip</button></div></section>
+<section class="panel"><div class="panel-title"><span>CAPTURED</span></div><div id="captured" class="captured"></div></section>
+<section class="panel history-panel"><div class="panel-title"><span>MOVE HISTORY</span></div><div id="history" class="history"></div></section>
+<section class="panel settings"><label><input id="sound" type="checkbox" checked> Sound</label><label><input id="autoQueen" type="checkbox"> Auto-queen promotion</label></section>
+</aside></section>
+<footer>Legal moves • Check/checkmate • Castling • En passant • Promotion • Draw detection • Alpha-beta search • Quiescence • Transposition table</footer>
+</main>
+<div id="promotion" class="modal hidden"><div class="dialog"><h2>Promote pawn</h2><p>Choose your piece</p><div id="promotionChoices"></div><button id="promotionCancel" class="secondary">Cancel</button></div></div>
+<div id="gameOverlay" class="modal hidden"><div class="dialog result"><div class="result-icon">♛</div><h2 id="overlayTitle">Game Over</h2><p id="overlayText"></p><button id="playAgain" class="primary">Play Again</button><button id="closeOverlay" class="secondary">Close</button></div></div>
+<script src="js/engine.js"></script><script src="js/game.js"></script>
+</body></html>
