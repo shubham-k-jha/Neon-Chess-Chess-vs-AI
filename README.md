@@ -1,43 +1,61 @@
-# Chess Game
+# ♟️ CHESS GAME
 
-A complete, beginner-friendly chess game using only HTML, CSS, and vanilla JavaScript. Open `index.html` directly in a browser—no Node.js, backend, framework, database, or authentication is required.
+A complete interactive chess game built with HTML, CSS, and JavaScript.
 
 ## Features
 
-- Interactive 8×8 board with click-to-move controls
-- Legal movement for pawns, knights, bishops, rooks, queens, and kings
-- Captures and captured-piece display
+- Click-to-move chess gameplay
+- Legal movement for all standard pieces
+- Captures and captured piece tracking
 - Check, checkmate, and stalemate detection
-- Castling on both sides
-- En passant
-- Promotion to queen, rook, bishop, or knight
-- Undo, new game, and board flip controls
-- Move history in simple algebraic notation
-- Threefold repetition and insufficient-material draw detection
-- Responsive desktop, tablet, and mobile layout
-- Keyboard-accessible buttons, visible focus states, and ARIA labels
+- Castling and en passant
+- Pawn promotion
+- Undo, restart, and board flip controls
+- Move history panel
+- Responsive design for desktop and mobile
+- Accessible UI buttons and focus states
 
 ## Tech Stack
 
-HTML5, CSS3, and vanilla JavaScript. No external libraries or CDN dependencies are used.
+- HTML
+- CSS
+- JavaScript
 
 ## How to Run
 
-1. Clone or download this repository.
-2. Open `index.html` in a modern web browser.
-3. Click a piece, then click a highlighted destination square.
+1. Download or clone the repository.
+2. Open `index.html` in a browser.
+3. Start playing.
 
 ## GitHub Pages
 
-Open the repository's **Settings → Pages**, select the `main` branch and the repository root (`/`), then save. GitHub Pages will publish `index.html` as the site entry point.
+To deploy this project using GitHub Pages:
+
+1. Push the repo to GitHub.
+2. Go to `Settings` → `Pages`.
+3. Select the branch and root folder.
+4. Save the configuration.
 
 ## Project Structure
 
-- `index.html` — application markup and controls
-- `style.css` — responsive visual design and board styling
-- `script.js` — board state, legal move generation, special moves, rendering, and controls
-- `README.md` — project documentation
+- `index.html` — main game page
+- `play.html` — landing page / direct play entry point
+- `style.css` — visual design and responsive layout
+- `script.js` — chess logic and game rules
+- `README.md` — project details and instructions
 
-## Implemented Chess Rules
+## Chess Rules Implemented
 
-The implementation validates moves against check, prevents pinned pieces from exposing the king, handles normal movement and captures, castling rights, en passant, promotion choice, checkmate, stalemate, threefold repetition, and basic insufficient-material draws. The 50-move rule is intentionally not claimed as implemented.
+- Pawn movement and captures
+- Knight, bishop, rook, queen, and king movement
+- Legal move validation
+- Castling
+- En passant
+- Promotion
+- Check detection
+- Checkmate and stalemate detection
+- Basic repetition / insufficient material draw checks
+
+## Live Demo
+
+Open the play page directly in the browser from the repo or use the GitHub Pages live link.
